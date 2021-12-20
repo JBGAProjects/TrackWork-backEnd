@@ -22,4 +22,23 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		return (List<Employee>) employeeDao.findAll();
 	}
 
+	@Override
+	@Transactional(readOnly=true) 
+	public Employee findById(Long id) {
+		return (Employee) employeeDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Employee save(Employee employee) {
+		return employeeDao.save(employee);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		employeeDao.deleteById(id);
+		
+	}
+
 }
