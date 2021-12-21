@@ -27,8 +27,10 @@ public class Employee implements Serializable {
 	private String phone;
 	private String dni;
 	private boolean available;
+	private boolean notAvailable;
 	private String studies;
-	
+	private String address;
+
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
@@ -52,6 +54,14 @@ public class Employee implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getFirstSurname() {
@@ -100,6 +110,14 @@ public class Employee implements Serializable {
 
 	public void setAvailable(boolean available) {
 		this.available = available;
+	}
+	
+	public boolean isNotAvailable() {
+		return notAvailable;
+	}
+
+	public void setNotAvailable(boolean notAvailable) {
+		this.notAvailable = notAvailable;
 	}
 
 	public String getStudies() {
