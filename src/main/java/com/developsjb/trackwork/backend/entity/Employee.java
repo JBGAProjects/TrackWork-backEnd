@@ -27,7 +27,6 @@ public class Employee implements Serializable {
 	private String phone;
 	private String dni;
 	private boolean available;
-	private boolean notAvailable;
 	private String studies;
 	private String address;
 
@@ -112,14 +111,6 @@ public class Employee implements Serializable {
 		this.available = available;
 	}
 	
-	public boolean isNotAvailable() {
-		return notAvailable;
-	}
-
-	public void setNotAvailable(boolean notAvailable) {
-		this.notAvailable = notAvailable;
-	}
-
 	public String getStudies() {
 		return studies;
 	}
