@@ -12,6 +12,10 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="employees")
@@ -20,11 +24,23 @@ public class Employee implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotEmpty()
+	@Size(min=4, max=25)
+	//indicamos que no sea nulo 
+	@Column(nullable=false)
 	private String name;
+	@NotEmpty
+	@Size(min=4, max=25)
 	private String firstSurname;
 	private String secondSurname;
+	@NotEmpty
+	@Email
+	@Column(nullable=false, unique=true)
 	private String email;
 	private String phone;
+	@NotEmpty
+	@Size(max=9)
 	private String dni;
 	private boolean available;
 	private String studies;
